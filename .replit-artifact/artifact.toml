@@ -1,0 +1,27 @@
+kind = "mobile"
+previewPath = "/"
+title = "wasl - دردشة الاصدقاء"
+version = "1.0.0"
+id = "artifacts/wasl"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+ensurePreviewReachable = "/status"
+name = "expo"
+paths = [ "/" ]
+localPort = 23478
+
+[services.development]
+run = "pnpm --filter @workspace/wasl run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/wasl", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/wasl", "run", "serve" ]
+
+[services.env]
+PORT = "23478"
+BASE_PATH = "/"
